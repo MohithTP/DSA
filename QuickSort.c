@@ -13,7 +13,7 @@ int partition(int arr[],int s,int e){
     i=s-1;
 
     for(j=s;j<e;j++){
-        if(arr[j]<arr[m]){
+        if(arr[j]<m){
             i++;
             swap(&arr[i],&arr[j]);
         }
@@ -33,9 +33,8 @@ void quicksort(int arr[],int s,int e){
 
 int duplicates(int arr[],int n){
     for(int i=0;i<n;i++){
-        if(arr[i]=arr[i+1]){
+        if(arr[i]==arr[i+1]){
             return arr[i+1];
-            return i;
         }
     }
     return -1;
@@ -56,5 +55,7 @@ int main(){
     for(int i=0;i<n;i++){
         printf("%d ",a[i]);
     }
+    int dup=duplicates(a,n);
+    printf("\nThe duplicate is: %d",dup);
     return 0;
 }
