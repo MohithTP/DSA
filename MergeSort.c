@@ -61,29 +61,40 @@ void sort(int arr[],int start,int end){
 int main(){
     double time;
     clock_t start, end;
-    int size;
-    printf("Enter size of array:");
-    scanf("%d", &size);
-    int arr[size];
-    printf("Enter elements:\n");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
-    }
-    printf("Array:\n");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
+    //int size;
+    // printf("Enter size of array:");
+    // scanf("%d", &size);
+    // int arr[size];
+    // printf("Enter elements:\n");
+    // for (int i = 0; i < size; i++) {
+    //     scanf("%d", &arr[i]);
+    // }
+    // printf("Array:\n");
+    // for (int i = 0; i < size; i++) {
+    //     printf("%d ", arr[i]);
+    // }
 
-    start = clock();
-    sort(arr, 0, size - 1);
-    end = clock();
-    time = (double)(end - start) / CLOCKS_PER_SEC;
+    // start = clock();
+    // sort(arr, 0, size - 1);
+    // end = clock();
+    // time = (double)(end - start) / CLOCKS_PER_SEC;
 
-    printf("\nSorted Array:\n");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
+    // printf("\nSorted Array:\n");
+    // for (int i = 0; i < size; i++) {
+    //     printf("%d ", arr[i]);
+    // }
+    // printf("\nTime: %lf", time);
+    for(int i=1;i<=10;i++){
+        int n=i*1000;
+        int arr[n];
+        arr[n]=rand()%(i+1);
+        int size=sizeof(arr) / sizeof(arr[0]);
+        start = clock();
+        sort(arr, 0, size - 1);
+        end = clock();
+        time = (double)(end - start) / CLOCKS_PER_SEC;
+        printf("No. of elements is %d, Time take is %f\n",n,time);
     }
-    printf("\nTime: %lf", time);
     return 0;
 
 }
