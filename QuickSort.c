@@ -9,17 +9,17 @@ void swap(int *a,int*b){
 
 int partition(int arr[],int s,int e){
     int i,j;
-    int m=arr[e];
-    i=s-1;
-
-    for(j=s;j<e;j++){
-        if(arr[j]<m){
-            i++;
-            swap(&arr[i],&arr[j]);
-        }
+    int pivot=arr[s];
+    i=s+1;
+    j=e;
+    while(i<=j){
+        while(i<=e && arr[i]<=pivot) i++;
+        while(arr[j]>pivot) j--;
+        if (i < j) swap(&arr[i], &arr[j]);
     }
-    swap(&arr[i+1],&arr[e]);
-    return i+1;
+    swap(&arr[s], &arr[j]); 
+    return j;
+
 }
 
 void quicksort(int arr[],int s,int e){
