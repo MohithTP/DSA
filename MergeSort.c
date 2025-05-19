@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<time.h>
-
+#include<sys/time.h>
 
 void merge(int arr[], int s,int m,int e){
 
@@ -59,8 +58,7 @@ void sort(int arr[],int start,int end){
    
 }
 int main(){
-    double time;
-    clock_t start, end;
+    struct timeval start, end;
     //int size;
     // printf("Enter size of array:");
     // scanf("%d", &size);
@@ -89,10 +87,10 @@ int main(){
         int arr[n];
         arr[n]=rand()%(i+1);
         int size=sizeof(arr) / sizeof(arr[0]);
-        start = clock();
-        sort(arr, 0, size - 1);
-        end = clock();
-        time = (double)(end - start) / CLOCKS_PER_SEC;
+        gettimeofday(&start,NULL);
+        sort(arr, 0, n - 1);
+        gettimeofday(&end,NULL);
+        float time = (end.tv_usec-start.tv_usec)/1000000.0; 
         printf("No. of elements is %d, Time take is %f\n",n,time);
     }
     return 0;
